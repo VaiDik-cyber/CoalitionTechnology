@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://inklinkor.com/tag.min.js',5963355,document.body||document.documentElement)</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1258148035160283"
+     crossorigin="anonymous"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>PSD TO WEB - Convert .psd files to html online.</title>
+
+<META NAME="searchtitle" CONTENT="PSD TO WEB - Convert .psd files to html online.">
+<META NAME="description" CONTENT="PSD TO WEB - Convert .psd files to html online.">
+<META NAME="keywords" CONTENT="psd2html,psd to html, psd, html, photoshop, convert, conversion, online">
+<META NAME="author" CONTENT="Lightweb Media GmbH, Mittenwald, www.lightweb-media.de">
+<META NAME="publisher" CONTENT="Lightweb Media GmbH, Mittenwald, www.lightweb-media.de">
+<META NAME="copyright" CONTENT="2023 Lightweb Media GmbH, Mittenwald, www.lightweb-media.de">
+<META NAME="audience" CONTENT="all">
+<META NAME="allow-search" CONTENT="yes">
+<META NAME="robots" CONTENT="index,follow">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fb1050">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="theme-color" content="#ffffff">
+
+<script type="text/javascript" src="/scripts/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/scripts/init.js"></script>
+<script type="text/javascript" src="/scripts/cssfx.min.js"></script>
+
+<script type="text/javascript" src="/scripts/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript" src="/scripts/fileuploader/fileuploader.js"></script>
+
+<link href="/scripts/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="/scripts/fileuploader/fileuploader.css" rel="stylesheet" type="text/css">
+<link href="styles.css" rel="stylesheet" type="text/css"  class="cssfx">
+
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://klick.lightweb-media.de/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '122']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+
+<link rel="stylesheet" type="text/css" href="/scripts/cookieconsent.min.css" />
+<script src="/scripts/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#dedede"
+    },
+    "button": {
+      "background": "#fc1267"
+    }
+  },
+  "content": {
+    "message": "This website uses cookies to ensure you get the best experience on our website. ",
+    "dismiss": "Got it!",
+    "link": "Learn more",
+    "href": "/datenschutz.php"
+  }
+})});
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8466445498521469"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<script>
+ /*
+  var gaProperty = 'UA-3078134-1';
+  var disableStr = 'ga-disable-' + gaProperty;
+  if (document.cookie.indexOf(disableStr + '=true') > -1) {
+    window[disableStr] = true;
+  }
+  function gaOptout() {
+    document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+    window[disableStr] = true;
+    alert('Das Tracking durch Google Analytics wurde in Ihrem Browser für diese Website deaktiviert.');
+  }
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3078134-1', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+  psd_filename */
+</script>
+<script>
+  var psd_filename = '';
+  var psd_converting = false;
+
+  convertsuccess = function (data) {
+    console.log('convertsuccess ');
+    console.log('data :' + JSON.stringify(data));
+    $("#progressbar").progressbar({ value: 100});
+    var form = $('<form></form>');
+    $(form).hide().attr('method','post').attr('action','download.php');
+    for (i in data) {
+      var input = $('<input type="hidden" />').attr('name',i).val(data[i]);
+      $(form).append(input);
+    }
+    $(form).appendTo('body').submit();
+  };
+
+  status_log = function (data) {
+    if(data.success == false) {
+      psd_converting = false;
+      return;
+    }
+    $('ul.qq-upload-list').css('display','none');
+    console.log(' status log ');
+    console.log('data :'+JSON.stringify(data));
+    console.log('Current pos :'+data.current);
+    cur_pos = data.current;
+    $("#progressbar").progressbar({ value: cur_pos});
+    return;
+  };
+
+  fetch_status = function () {
+    $.post( "status.php",  { 'filename': psd_filename}, function(data) { status_log(data);},"json");
+    if(psd_converting) {
+      t = setTimeout("fetch_status()", 1000);
+    }
+  };
+
+  function createUploader() {
+    var uploader = new qq.FileUploader({
+      element: document.getElementById('file-uploader'),
+      action: 'upload.php',
+      debug: true,
+      onProgress: function(id, fileName, loaded, total){
+        pos = (loaded/total)*100;
+        $('.qq-upload-list').css('display','block');
+        $("#progressbar").progressbar({ value: pos});
+        $('#progressbar').css('display','block');
+        $('.qq-upload-failed-text').css('display','none');
+      },
+      onCancel: function(){
+        $('#progressbar').css('display','none');
+        $('.qq-upload-list').css('display','none');
+        psd_converting = false;
+      },
+      onComplete: function(id, fileName, responseJSON) {
+        psd_converting = true;
+        psd_filename = responseJSON.filename;
+        console.log('ID :'+id);
+        console.log('fileName :'+fileName);
+        console.log('responseJSON :' + JSON.stringify(responseJSON));
+        console.log('file name :'+responseJSON.filename);
+
+        console.log('Call convert...');
+        $.post( "convert.php", { 'filename': responseJSON.filename}, function(data) { psd_converting = false; convertsuccess(data);},"json");
+
+        if(psd_converting) {
+          fetch_status();
+          t = setTimeout("fetch_status()", 1000);
+          $('ul.qq-upload-list').css('display','none');
+          $("#progressbar").append('<div class="progressbar_processing">Processing…</div>');
+        }
+      },
+      // validation
+      // ex. ['jpg', 'jpeg', 'png', 'gif'] or []
+      allowedExtensions: ['psd'],
+      // each file size limit in bytes
+      // this option isn't supported in all browsers
+      sizeLimit: 100000000, // max size
+      minSizeLimit: 0 // min size
+    });
+  }
+
+  // in your app create uploader as soon as the DOM is ready
+  // don't wait for the window to load
+  window.onload = createUploader;
+</script>
+<div id="top">
+
+<div id="header">
+  <div class="center">
+
+    <a href="index.php"><img src="images/logo.png" id="logo" /></a>
+
+    <p id="header_text">
+    The first ever <strong>automatic conversion</strong> of photoshop® .psd files to html.<br />
+    <strong>Retain original layers</strong> including positions as html div layers. </p>
+<!--
+    <div id="donate_button_header">
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="KYDUTNDCWFCTL">
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+    </div>
+    -->
+  </div><!-- close center -->
+</div><!-- close header -->
+
+<div class="center">
+<div id="upload_block">
+
+  <div id="file_upload">
+    <div id="file-uploader">
+      <noscript>
+        <h1>Convert your .psd file to html online in three easy steps: Upload your .psd file, check HTML and PNGs, download files as .zip package.</h1>
+      </noscript>
+    </div>
+    <div id="progressbar"></div>
+    </div>
+
+
+<!--<h1><a href="download.php"><img src="images/button.png" id="upload_button" alt="Convert your .psd file to html online in three easy steps: Upload your .psd file" /></a></h1>-->
+</div>
+</div>
+
+<div id="content">
+<div class="center" id="show_data">
+
+<img src="images/grafik.png" id="grafik"/>
+
+<div id="info_boxen">
+
+<div id="box1" class="box">
+<img src="images/info1.png" />
+<h2>PSD File</h2>
+<ul>
+<li><strong>standard .psd</strong> file</li>
+<li>  multiple<strong> layers with transparency</strong></li>
+<li>layer effects and adjustment layers <strong class="magenta"><br />
+  need to be rasterized</strong></li>
+<li>only <strong>8bit RGB</strong> supported<br />
+</li>
+<li><strong class="magenta">layer masks are currently not <br />
+  supported</strong> and must be applied<br />
+  to layers</li>
+  <li><strong class="magenta">max. 80mb</strong> filesize</li>
+  <li>for optimum colors please use <strong>sRGB color profile</strong></li>
+</ul>
+</div><!-- close box-->
+
+<div id="box2" class="box">
+<img src="images/info2.png" />
+<h2>HTML/CSS</h2>
+<ul>
+<li><strong>html</strong> file with <strong>div layers</strong></li>
+<li>  layers with <strong>png images</strong> set to<br />
+  absolute positions</li>
+<li><strong> div layer IDs</strong> from layer name<br />
+  </li>
+<li>use a <strong>standard html editor<br />
+  to go from here</strong></li>
+</ul>
+</div><!-- close box2 -->
+
+</div><!-- close info boxen -->
+
+<div id="" class="box bigbox" style="margin-bottom: 30px;">
+<h3><span class="magenta">Not intented for creating Themes!</span></h3>
+<p>This service <span class="magenta">can not be used to create out-of-the-box themes</span> for any CMS (content management Systems) like <span class="magenta">Wordpress, Joomla, Drupal </span> or shop systems like <span class="magenta">Magento, Shopware, Plentymarkets, OXID, xtCommerce</span> or others ! These systems rely on HTML-text based content and grow their dimensions with changing content. PSDTOWEB creates non-sizable images of each element and can't be used as a theme.</p>
+
+
+</div><!-- close box-->
+
+<div id="donate" class="box">
+<h3>Like this service?  <span class="magenta">Please donate</span> to keep it free!</h3>
+<p>Creating and maintaining this service takes a lot of time and money<br />
+Please help us keeping it free by considering a donation.</p>
+<!--
+<div id="donate_button">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="6FVAAJH9TQESW">
+<input type="image" src="https://www.paypalobjects.com/en_US/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+</div>
+-->
+</div><!-- close box-->
+
+<div  class="box bigbox">
+<h3>Why web<span class="magenta">to</span>psd?</h3>
+<p>As a web agency a lot of our work consists of exporting image elements from photoshop and manually adding each of them in html files to <strong>rebuild the original photoshop layout of websites</strong>. <strong>To save ourselves some time</strong> and <strong>speed up the proces</strong>s we created this service as a quick solution to build the basic html needed for simple pages and larger projects. Also it will enable<strong> anyone capable of using Adobe Photoshop</strong> to create <strong>pixel exact web layouts</strong> in a breeze.</p>
+</div>
+
+<div  class="box bigbox">
+<h3><span class="magenta">Need more</span> than just basic html? Try us!</h3>
+<p>As mentioned before we are a web agency and are handling <strong>web projects of virtually any size</strong> for our clients. Basic pages as well as large platforms are part of our portfolio which you can find on <strong><a href="https://www.lightweb-media.de/" target="_blank">www.lightweb-media.de</a></strong>. We offer sites based on basic html and a large number of different CMS options - including <strong>Wordpress</strong> and <strong>Drupal</strong> - and technologies (PHP/SQL,AJAX/jQuery,HTML5,Web-Apps). Don't hesitate to <a href="mailto:agentur@lightweb-media.de" class="magenta">contact us</a>.</p>
+</div>
+
+
+</div><!-- close center -->
+</div><!-- close content -->
+
+</div><!-- close top -->
+
+<div id="footer">
+<div class="center">
+
+<div class="left">
+&copy; 2012 by Lightweb Media GmbH
+
+<p id="disclaimer">Adobe® and Photoshop® are either registered trademarks or trademarks of Adobe Systems Incorporated in the United States and/or other countries. This service isn't in any way affiliated with Adobe or Photoshop.</p>
+</div>
+
+<div class="right">
+<a href="https://lightweb-media.de/impressum/" target="_blank">IMPRINT</a>&nbsp;&nbsp;<a href="/datenschutz.php">PRIVACY POLICY</a>
+</div>
+
+</div><!-- close center -->
+</div><!-- close footer -->
+</body>
+</html>
